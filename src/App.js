@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import FindDoctors from './Components/FindDoctors';
+import Home from './Components/Home';
+import LandingPage from './Components/LandingPage';
+import MyBooking from './Components/MyBooking';
+import { MyProvider } from './Components/MyContext1';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
+    {
+      path: "/findDoctor",
+      element: <FindDoctors />,
+    },
+    {
+      path: "/booking",
+      element: <MyBooking />,
+    },
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MyProvider>
+    <RouterProvider router={router} fallbackElement={<p>Initial Load...</p>} />
+    </MyProvider>
   );
 }
 
