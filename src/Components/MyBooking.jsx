@@ -103,7 +103,7 @@ function MyBooking() {
       </div>
        
        <div className="search-result-view">
-         <div className="hospital-search-list">
+         <div className="hospital-search-list-1">
          {allBookings.map((item) =>{
           return (
             <div className="hospital-search-list-left">
